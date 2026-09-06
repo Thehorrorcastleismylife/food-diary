@@ -1,0 +1,104 @@
+.picker-container {
+            margin-top: 20%;
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .picker-wrapper {
+            position: relative;
+            height: 216px;
+            overflow: hidden;
+            background: linear-gradient(to bottom, 
+                rgba(255,255,255,1) 0%, 
+                rgba(255,255,255,1) 30%,
+                rgba(255,255,255,0) 50%,
+                rgba(255,255,255,0) 50%,
+                rgba(255,255,255,1) 70%,
+                rgba(255,255,255,1) 100%);
+        }
+
+        .picker-mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            pointer-events: none;
+            background: linear-gradient(to bottom,
+                rgba(242, 242, 247, 0.9) 0%,
+                rgba(242, 242, 247, 0.6) 35%,
+                transparent 50%,
+                rgba(242, 242, 247, 0.6) 65%,
+                rgba(242, 242, 247, 0.9) 100%);
+            z-index: 1;
+            user-select: none; 
+        }
+
+        .picker-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #007aff;
+            transform: translateY(-50%);
+            z-index: 2;
+            
+        }
+
+        .picker-content {
+            position: relative;
+            transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+            user-select: none; 
+        }
+
+        .picker-item {
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            font-size: 20px;
+            color: #8e8e93;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .picker-item.selected {
+            color: #000;
+            font-weight: 600;
+            font-size: 24px;
+        }
+
+        .picker-item-label {
+            color: inherit;
+        }
+
+        .picker-item-value {
+            color: inherit;
+        }
+
+        .picker-button {
+            background: #007aff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .picker-button:hover {
+            background: #0056b3;
+        }
+
+        .picker-button:active {
+            background: #004494;
+        }
+        

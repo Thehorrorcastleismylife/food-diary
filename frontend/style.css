@@ -1,0 +1,199 @@
+body {
+    background-image: url('/res/мраморный\ стол\ еды\ блюр.png');
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.Inter {
+    font-family: 'Inter', sans-serif;
+}
+
+.text-wrapping {
+    text-wrap: wrap;
+    text-align: center;
+}
+
+.font-size_50 {
+    font-size: 50px;
+}
+
+.font-size_40 {
+    font-size: 40px;
+}
+.font-size_22 {
+    font-size: 22px;
+}
+
+.font-weight_500 {
+    font-weight: 600;
+}
+
+
+.start-btn {
+    border-radius: 20px;
+    width: 60%;
+    height: 15%;
+    background-color: black;
+    margin-top: 10%;
+    filter: drop-shadow(0 0 0.75rem black);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    cursor: pointer;
+}
+
+.male-button {
+    width: 65%;
+    height: 12%;
+    border-radius: 15px;
+    margin-top: 20%;
+    background-color: white;
+    border: none;
+    filter: drop-shadow(0 5px 4px gray);
+
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.start-btn-text {
+    color: white;
+    font-weight: 600;
+    font-size: 40px;
+}
+
+.arrow-start {
+    height: 40px;
+    width: auto;
+
+}
+
+.arrow-right {
+    width: 100px;
+    height: 100px;
+    transform: rotate(180deg);
+    border: none;
+    background: none;
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    cursor: pointer;
+}
+.arrow-left {
+    width: 100px;
+    height: 100px;
+    border: none;
+    background: none;
+    position: absolute;
+    left: 30px;
+    bottom: 30px;
+    cursor: pointer;
+}
+
+.activity-btn {
+    width: 65%;
+    height: 12%;
+    border-radius: 15px;
+    border: none;
+    background-color: white;
+    filter: drop-shadow(0 5px 4px gray);
+    margin-top: 5%;
+    cursor: pointer;
+}
+
+
+
+/* for js */
+.screen {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.screen.active {
+    width: 650px;
+    height: 750px;
+    background-color: #F3EFEF;
+    border-radius: 53px;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    opacity: 1;
+}
+
+.male-button-pressed {
+    background-color: black;
+    color: white;
+}
+
+.activity-btn-pressed {
+    background-color: black;
+    color: white;
+}
+.arrow-right-activity {
+    width: 100px;
+    height: 100px;
+    transform: rotate(180deg);
+    border: none;
+    background: none;
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    cursor: pointer;
+}
+.arrow-right-weight {
+    width: 100px;
+    height: 100px;
+    transform: rotate(180deg);
+    border: none;
+    background: none;
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    cursor: pointer;
+}
+.arrow-right-height {
+    width: 100px;
+    height: 100px;
+    transform: rotate(180deg);
+    border: none;
+    background: none;
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    cursor: pointer;
+}
+.arrow-right-age {
+     width: 100px;
+    height: 100px;
+    transform: rotate(180deg);
+    border: none;
+    background: none;
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    cursor: pointer;
+}
+.arrow-right-desired-weight {
+      width: 100px;
+    height: 100px;
+    transform: rotate(180deg);
+    border: none;
+    background: none;
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    cursor: pointer;
+}

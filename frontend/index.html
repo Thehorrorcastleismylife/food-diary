@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Календарь калорий</title>
+    <link rel="icon" href="res/лого (2).jpg" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/picker.css">
+</head>
+
+<body>
+    <!-- Экран 1: начальный экран -->
+    <div class="screen active" data-step="1">
+        <p class="text-wrapping Inter font-size_50" style="font-weight: 500;">Давайте настроим ваш рацион</p>
+        <p class="text-wrapping Inter" style="font-size: 35px;">Получите персональный план за минуту</p>
+        <button class="start-btn next">
+            <span class="start-btn-text Inter">Начать</span>
+            <img src="res/стрелка начала.png" class="arrow-start">
+        </button>
+    </div>
+
+    <!-- Экран 2: выбор пола -->
+    <div class="screen" data-step="2">
+        <span class="text-wrapping Inter font-size_50">Выберите пол</span>
+        <button class="male-button">
+            <span class="Inter font-weight_500 font-size_40">Мужской</span>
+        </button>
+        <button class="Inter male-button">
+            <span class="Inter font-weight_500 font-size_40">Женский</span>
+        </button>
+        <button class="arrow-right" onclick="setMale()">
+            <img src="res/стрелка-следующего окна.png">
+        </button>
+    </div>
+
+    <!-- Экран 3: выбор активности -->
+    <div class="screen" data-step="3">
+        <span class="text-wrapping Inter font-size_50" style="padding-bottom: 5%;">Какая у вас активность?</span>
+        <button class="activity-btn" data-coeff="1.2">
+            <span class="Inter font-weight_500 font-size_22">Мало двигаюсь. Нет тренировок, сидячая работа</span>
+        </button>
+        <button class="activity-btn" data-coeff="1.375">
+            <span class="Inter font-weight_500 font-size_22">Лёгкая активность. 1-2 тренировки в неделю или много хожу</span>
+        </button>
+        <button class="activity-btn" data-coeff="1.55">
+            <span class="Inter font-weight_500 font-size_22">Активный. 3-5 тренировок, двигаюсь много</span>
+        </button>
+        <button class="activity-btn" data-coeff="1.725">
+            <span class="Inter font-weight_500 font-size_22">Спортсмен. почти каждый день</span>
+        </button>
+        <button class="arrow-right-activity" onclick="setActivity()">
+            <img src="res/стрелка-следующего окна.png">
+        </button>
+        <button class="arrow-left prev">
+            <img src="res/стрелка-следующего окна.png">
+        </button>
+    </div>
+
+    <!-- Экран 4: Вес -->
+    <div class="screen" data-step="4">
+        <span class="text-wrapping Inter font-size_50" style="user-select: none;">Выберите вес</span>
+        <div class="picker-container">
+            <div class="picker-wrapper" id="pickerWrapper">
+                <div class="picker-mask"></div>
+                <div class="picker-line"></div>
+                <div class="picker-content"></div>
+            </div>
+        </div>
+        <button class="arrow-left prev">
+            <img src="res/стрелка-следующего окна.png">
+        </button>
+        <button class="arrow-right-weight" onclick="setWeight()">
+            <img src="res/стрелка-следующего окна.png">
+        </button>
+    </div>
+
+    <!-- Экран 5: Рост -->
+    <div class="screen" data-step="5">
+        <span class="text-wrapping Inter font-size_50" style="user-select: none;">Выберите рост</span>
+        <div class="picker-container">
+            <div class="picker-wrapper" id="pickerWrapperHeight">
+                <div class="picker-mask"></div>
+                <div class="picker-line"></div>
+                <div class="picker-content"></div>
+            </div>
+        </div>
+        <button class="arrow-left prev">
+            <img src="res/стрелка-следующего окна.png">
+        </button>
+        <button class="arrow-right-height" onclick="setHeight()">
+            <img src="res/стрелка-следующего окна.png">
+        </button>
+    </div>
+
+    <!-- Экран 6: Возраст -->
+    <div class="screen" data-step="6">
+        <span class="text-wrapping Inter font-size_50" style="user-select: none;">Выберите возраст</span>
+        <div class="picker-container">
+            <div class="picker-wrapper" id="pickerWrapperAge">
+                <div class="picker-mask"></div>
+                <div class="picker-line"></div>
+                <div class="picker-content"></div>
+            </div>
+        </div>
+        <button class="arrow-left prev">
+            <img src="res/стрелка-следующего окна.png">
+        </button>
+        <button class="arrow-right-age" onclick="setAge(); ">
+            <img src="res/стрелка-следующего окна.png">
+        </button>
+    </div>
+
+    <!-- Экран 7:  выбор желаемого веса -->
+   <div class="screen" data-step="7">
+        <span class="text-wrapping Inter font-size_50" style="user-select: none;">Выберите желаемый вес</span>
+        <div class="picker-container">
+            <div class="picker-wrapper" id="pickerWrapperDesiredWeight">
+                <div class="picker-mask"></div>
+                <div class="picker-line"></div>
+                <div class="picker-content"></div>
+            </div>
+        </div>
+        <button class="arrow-left prev">
+            <img src="res/стрелка-следующего окна.png">
+        </button>
+         <button class="arrow-right-desired-weight" >
+            <img src="res/стрелка-следующего окна.png">
+        </button>
+    </div>
+
+    <script src="JS/index/picker.js"></script>
+    <script src="JS/index/userCollectInfo.js"></script>
+    <script src="JS/index/changeActiveScreen.js"></script>
+   
+    <script src="JS/index/changeStatusBtns/MaleChangeStatusBtn.js"></script>
+    <script src="JS/index/changeStatusBtns/activityChangeStatusBtn.js"></script>
+</body>
+</html>

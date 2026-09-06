@@ -1,0 +1,48 @@
+FROM ubuntu:24.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV PYTHONUNBUFFERED=1
+
+# Установка Python и необходимых системных пакетов
+RUN apt-get update && apt-get install -y \
+    python3 \
+    python3-pip \
+    python3-venv \
+    wget \
+    ca-certificates \
+    tar \
+    && rm -rf /var/lib/apt/lists/*
+
+# Рабочая директория
+WORKDIR /app
+
+# Создаём virtual environment
+RUN python3 -m venv /opt/venv
+
+ENV PATH="/opt/venv/bin:$PATH"
+
+# Копируем зависимости
+COPY container/requirements.txt .
+
+# Устанавливаем Python-библиотеки
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir -r requirements.txt
+
+# Устанавливаем CloudPub CLI
+RUN wget https://cloudpub.ru/download/stable/clo-3.5.1056-stable-linux-x86_64.tar.gz \
+    && tar -xvf clo-3.5.1056-stable-linux-x86_64.tar.gz \
+    && mv clo /usr/local/bin/clo \
+    && chmod +x /usr/local/bin/clo \
+    && rm clo-3.5.1056-stable-linux-x86_64.tar.gz
+
+# Копируем Python-приложение
+COPY container/app.py .
+
+# Копируем фронтенд
+COPY frontend ./frontend
+
+# Flask будет слушать этот порт
+EXPOSE 5000
+
+# Запуск приложения
+CMD ["python3", "app.py"]
